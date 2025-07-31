@@ -23,7 +23,7 @@ function ClientDashboard() {
 
   const fetchJobs = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/jobs/my-jobs", {
+      const res = await axios.get("https://freelancer-9826.vercel.app/api/jobs/my-jobs", {
         headers: { Authorization: token },
       });
       setJobs(res.data);
@@ -37,7 +37,7 @@ function ClientDashboard() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/jobs", form, {
+      await axios.post("https://freelancer-9826.vercel.app/api/jobs", form, {
         headers: { Authorization: token },
       });
       alert("✅ Job posted!");
@@ -52,7 +52,7 @@ function ClientDashboard() {
   const handleDelete = async (jobId) => {
     if (!window.confirm("Are you sure you want to delete this job?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/jobs/${jobId}`, {
+      await axios.delete(`https://freelancer-9826.vercel.app/api/jobs/${jobId}`, {
         headers: { Authorization: token },
       });
       alert("✅ Job deleted");
@@ -77,7 +77,7 @@ function ClientDashboard() {
 
   const handleToggleFilled = async (jobId) => {
     try {
-      await axios.patch(`http://localhost:5000/api/jobs/${jobId}/toggle-filled`, null, {
+      await axios.patch(`https://freelancer-9826.vercel.app/api/jobs/${jobId}/toggle-filled`, null, {
         headers: { Authorization: token },
       });
       fetchJobs();
@@ -90,7 +90,7 @@ function ClientDashboard() {
   const handleEditSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/jobs/${editingJobId}`, editForm, {
+      await axios.put(`https://freelancer-9826.vercel.app/api/jobs/${editingJobId}`, editForm, {
         headers: { Authorization: token },
       });
       alert("✅ Job updated");
@@ -150,7 +150,7 @@ function ClientDashboard() {
                         <span className="text-sm text-gray-500"> ({applicant.userId?.email || "N/A"})</span>
                         {applicant.resume && (
                           <a
-                            href={`http://localhost:5000/${applicant.resume}`}
+                            href={`https://freelancer-9826.vercel.app/${applicant.resume}`}
                             className="ml-2 text-blue-600 underline"
                             target="_blank"
                             rel="noopener noreferrer"

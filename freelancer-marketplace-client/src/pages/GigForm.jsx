@@ -18,7 +18,7 @@ function GigForm() {
     const token = localStorage.getItem("token");
 
     try {
-      await axios.post("http://localhost:5000/api/gigs", {
+      await axios.post("https://freelancer-9826.vercel.app/api/gigs", {
         ...form,
         skills: form.skills.split(",").map((s) => s.trim()),
       }, {

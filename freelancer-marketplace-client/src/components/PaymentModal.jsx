@@ -24,7 +24,7 @@ function PaymentModal({ freelancer, onClose, type = "pay" }) {
       if (type === "pay") {
         // Actually record payment in backend
         await axios.post(
-          "http://localhost:5000/api/payments",
+          "https://freelancer-9826.vercel.app/api/payments",
           {
             freelancerId: freelancer._id,
             amount: form.amount,

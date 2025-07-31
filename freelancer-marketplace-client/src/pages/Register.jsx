@@ -28,7 +28,7 @@ function Register() {
     console.log("Submitted data:", data); // 🐞 Debug
 
     try {
-      const res = await axios.post("http://localhost:5000/api/register", data);
+      const res = await axios.post("https://freelancer-9826.vercel.app/api/register", data);
       alert("✅ Registered successfully!");
       window.location.href = "/login";
     } catch (err) {

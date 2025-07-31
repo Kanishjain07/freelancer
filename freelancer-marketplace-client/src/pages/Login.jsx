@@ -18,7 +18,7 @@ function Login() {
 
  const onSubmit = async (data) => {
   try {
-    const res = await axios.post("http://localhost:5000/api/login", data);
+    const res = await axios.post("https://freelancer-9826.vercel.app/api/login", data);
 
     const { token, user } = res.data;
     localStorage.setItem("token", token);
