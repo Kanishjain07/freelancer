@@ -25,7 +25,7 @@ function HireFreelancer() {
     if (!token) return;
 
     axios
-      .get("https://freelancer-9826.vercel.app/api/dashboard/client", {
+      .get("http://localhost:5000/api/dashboard/client", {
         headers: { Authorization: token },
       })
       .then((res) => setStats(res.data))
@@ -35,7 +35,7 @@ function HireFreelancer() {
   
   useEffect(() => {
     axios
-      .get("https://freelancer-9826.vercel.app/api/gigs")
+      .get("http://localhost:5000/api/gigs")
       .then((res) => setGigs(res.data))
       .catch((err) => console.error("❌ Error fetching gigs:", err));
   }, []);

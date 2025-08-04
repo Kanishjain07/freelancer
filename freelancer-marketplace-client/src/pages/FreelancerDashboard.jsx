@@ -23,7 +23,7 @@ function FreelancerDashboard() {
   useEffect(() => {
     if (!token) return;
     axios
-      .get("https://freelancer-9826.vercel.app/api/dashboard/freelancer", {
+      .get("http://localhost:5000/api/dashboard/freelancer", {
         headers: { Authorization: token },
       })
       .then((res) => setStats(res.data))
@@ -38,13 +38,13 @@ function FreelancerDashboard() {
   const fetchDashboardData = async () => {
     try {
       // Fetch gigs
-      const gigRes = await axios.get("https://freelancer-9826.vercel.app/api/gigs/my-gigs", {
+      const gigRes = await axios.get("http://localhost:5000/api/gigs/my-gigs", {
         headers: { Authorization: token },
       });
       setGigs(gigRes.data);
 
       // Fetch freelancer stats
-      const statsRes = await axios.get("https://freelancer-9826.vercel.app/api/dashboard/freelancer", {
+      const statsRes = await axios.get("http://localhost:5000/api/dashboard/freelancer", {
         headers: { Authorization: token },
       });
       //setFreelancerStats(statsRes.data); // You should define this state
@@ -60,7 +60,7 @@ function FreelancerDashboard() {
   const handleCreateGig = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://freelancer-9826.vercel.app/api/gigs", newGig, {
+      const res = await axios.post("http://localhost:5000/api/gigs", newGig, {
         headers: { Authorization: token },
       });
       setGigs([...gigs, res.data]);
@@ -74,7 +74,7 @@ function FreelancerDashboard() {
 
   const handleDeleteGig = async (gigId) => {
     try {
-      await axios.delete(`https://freelancer-9826.vercel.app/api/gigs/${gigId}`, {
+      await axios.delete(`http://localhost:5000/api/gigs/${gigId}`, {
         headers: { Authorization: token },
       });
       setGigs(gigs.filter((gig) => gig._id !== gigId));
